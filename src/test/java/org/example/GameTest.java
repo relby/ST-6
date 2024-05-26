@@ -89,6 +89,14 @@ public class GameTest {
     }
 
     @Test
+    public void testMiniMax() {
+        Game game = new Game();
+        game.board = new char[] {'X', 'X', ' ', 'O', 'O', ' ', ' ', ' ', ' '};
+        int move = game.MiniMax(game.board, game.player2);
+        assertTrue(move >= 1 && move <= 9);
+    }
+
+    @Test
     public void testEvaluatePositionPlayer1Win() {
         Game game = new Game();
         game.symbol = 'X';
@@ -97,13 +105,5 @@ public class GameTest {
         game.board[2] = game.player1.symbol;
         int result = game.evaluatePosition(game.board, game.player1);
         assertEquals(+Game.INF, result);
-    }
-
-    @Test
-    public void testMiniMax() {
-        Game game = new Game();
-        game.board = new char[] {'X', 'X', ' ', ' ', 'O', 'X', ' ', ' ', 'X'};
-        int move = game.MiniMax(game.board, game.player2);
-        assertTrue(move >= 1 && move <= 9);
     }
 }
