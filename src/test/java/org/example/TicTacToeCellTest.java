@@ -1,7 +1,7 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TicTacToeCellTest {
     private TicTacToeCell cell;
@@ -9,31 +9,31 @@ public class TicTacToeCellTest {
     @Test
     public void testInitialCellState() {
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
-        Assert.assertEquals(' ', cell.getMarker());
-        Assert.assertEquals(0, cell.getNum());
-        Assert.assertEquals(0, cell.getRow());
-        Assert.assertEquals(0, cell.getCol());
+        assertEquals(' ', cell.getMarker());
+        assertEquals(0, cell.getNum());
+        assertEquals(0, cell.getRow());
+        assertEquals(0, cell.getCol());
     }
     @Test
     public void testGetRow() {
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
-        Assert.assertEquals(0, cell.getRow());
+        assertEquals(0, cell.getRow());
     }
     @Test
     public void testGetCol() {
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
-        Assert.assertEquals(0, cell.getCol());
+        assertEquals(0, cell.getCol());
     }
     @Test
     public void testGetNum() {
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
-        Assert.assertEquals(0, cell.getNum());
+        assertEquals(0, cell.getNum());
     }
     @Test
     public void testSetMarker() {
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
         cell.setMarker("X");
-        Assert.assertEquals('X', cell.getMarker());
-        Assert.assertFalse(cell.isEnabled());
+        assertEquals('X', cell.getMarker());
+        assertFalse(cell.isEnabled());
     }
 } 

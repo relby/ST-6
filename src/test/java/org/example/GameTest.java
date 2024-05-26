@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
     @Test
@@ -10,36 +10,36 @@ public class GameTest {
         Game game = new Game();
         char[] board = { 'X', 'O', 'X', ' ', 'O', 'X', ' ', 'O', ' ' };
         game.symbol = 'O';
-        Assert.assertEquals(game.checkState(board), State.OWIN);
+        assertEquals(game.checkState(board), State.OWIN);
     }
     @Test
     public void testCheckStateXWIN() {
         Game game = new Game();
         char[] board = { 'X', 'O', 'X', 'O', 'X', 'O', 'X', ' ', ' ' };
         game.symbol = 'X';
-        Assert.assertEquals(game.checkState(board), State.XWIN);
+        assertEquals(game.checkState(board), State.XWIN);
     }
     @Test
     public void testCheckStatePLAYING() {
         Game game = new Game();
         char[] board = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
-        Assert.assertEquals(game.checkState(board), State.PLAYING);
+        assertEquals(game.checkState(board), State.PLAYING);
     }
     @Test
     public void testCheckStateDRAW() {
         Game game = new Game();
         char[] board = { 'X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X' };
-        Assert.assertEquals(game.checkState(board), State.DRAW);
+        assertEquals(game.checkState(board), State.DRAW);
     }
     @Test
     public void testInitialGameState() {
         Game game = new Game();
-        Assert.assertEquals(game.state, State.PLAYING);
-        Assert.assertEquals(game.player1.symbol, 'X');
-        Assert.assertEquals(game.player2.symbol, 'O');
-        Assert.assertEquals(game.board.length, 9);
+        assertEquals(game.state, State.PLAYING);
+        assertEquals(game.player1.symbol, 'X');
+        assertEquals(game.player2.symbol, 'O');
+        assertEquals(game.board.length, 9);
 	for (int i = 0; i < game.board.length; i++) {
-            Assert.assertEquals(game.board[i], ' ');
+            assertEquals(game.board[i], ' ');
 	}
     }
     @Test
@@ -47,7 +47,7 @@ public class GameTest {
         Game game = new Game();
         ArrayList<Integer> moves = new ArrayList<>();
         game.generateMoves(game.board, moves);
-        Assert.assertEquals(9, moves.size());
+        assertEquals(9, moves.size());
     }
 
     @Test
@@ -58,14 +58,14 @@ public class GameTest {
         game.board[7] = 'X';
         ArrayList<Integer> moves = new ArrayList<>();
         game.generateMoves(game.board, moves);
-        Assert.assertEquals(6, moves.size());
+        assertEquals(6, moves.size());
     }
 
     @Test
     public void testEvaluatePositionPlaying() {
         Game game = new Game();
         int result = game.evaluatePosition(game.board, game.player1);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class GameTest {
         game.symbol = 'X';
         game.board = new char[] {'X', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'O'};
         int result = game.evaluatePosition(game.board, game.player1);
-        Assert.assertEquals(0, result);
+        assertEquals(0, result);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class GameTest {
         game.board[1] = game.player2.symbol;
         game.board[2] = game.player2.symbol;
         int result = game.evaluatePosition(game.board, game.player1);
-        Assert.assertEquals(-Game.INF, result);
+        assertEquals(-Game.INF, result);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class GameTest {
         game.board[1] = game.player1.symbol;
         game.board[2] = game.player1.symbol;
         int result = game.evaluatePosition(game.board, game.player1);
-        Assert.assertEquals(+Game.INF, result);
+        assertEquals(+Game.INF, result);
     }
 
     @Test
@@ -104,6 +104,6 @@ public class GameTest {
         Game game = new Game();
         game.board = new char[] {'X', 'X', ' ', ' ', 'O', 'X', ' ', ' ', 'X'};
         int move = game.MiniMax(game.board, game.player2);
-        Assert.assertTrue(move >= 1 && move <= 9);
+        assertTrue(move >= 1 && move <= 9);
     }
 }
