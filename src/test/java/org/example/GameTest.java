@@ -1,8 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assert;
 
 public class GameTest {
     @Test

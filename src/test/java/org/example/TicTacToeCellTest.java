@@ -1,7 +1,7 @@
 package org.example;
 
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assert;
 
 public class TicTacToeCellTest {
     private TicTacToeCell cell;
